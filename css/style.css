@@ -1,0 +1,424 @@
+/* body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.block {
+  overflow-y: hidden;
+} */
+
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+
+.container {
+  padding: 50px 15px;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: 1px solid #262626;
+  margin: 10px 5px;
+  border-radius: 5px;
+  background-color: #215fb3ee;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(38, 38, 38, .5);
+  transition: all .3S ease-out;
+}
+
+.btn:active {
+  transform: scale(.95);
+}
+
+.btn:hover {
+  transition: all .3S ease-out;
+  box-shadow: 0 0 0 rgba(38, 38, 38, .5);
+}
+
+.modal__mainWr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(38, 38, 38, .6); */
+  background-color: rgb(25 24 220 / 52%);;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0;
+  transition: all .3s;
+  transform: scale(0);
+}
+
+.modal__mainWr.active {
+  opacity: 1;
+  z-index: 1;
+  overflow-y: auto;
+  transform: scale(1);
+}
+
+.modal__content {
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  margin: 0 45px;
+  position: relative;
+}
+
+.closeModal {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  width: 33px;
+  height: 33px;
+  background: initial;
+  transition: all .3s ease;
+}
+
+.closeModal span {
+  position: absolute;
+  top: calc( 50% - 3px);
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #dcdcdc;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(245, 69, 0, .5);
+}
+
+.closeModal:hover {
+  transform: rotate(90deg);
+}
+
+.closeModal:hover span {
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  transition: all .3s;
+}
+
+.closeModal span:first-child {
+  transform: rotate(45deg);
+}
+
+.closeModal span:last-child {
+  transform: rotate(-45deg);
+}
+
+.modal__item {
+  height: 100%;
+  background-color: ##dcdcdc;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quiz__form {
+  position: relative;
+}
+
+.quiz__form._sending::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .2);
+  z-index: 9;
+}
+
+.modal__item-header {
+  position: relative;
+}
+
+.modal__item-header h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #262626;
+  border-bottom: 1px solid rgba(255, 255, 255, .4);
+  display: flex;
+  justify-content: space-between;
+}
+
+.my__formTitle {}
+
+.contQ {}
+
+.currentQ {}
+
+.allQ {}
+
+.progress__bar {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #c1c1c1;
+}
+
+.progress {
+  height: 100%;
+  background-color: blue;
+  width: 0;
+  transition: all .3s ease-in-out;
+}
+
+.modal__item-body {
+  position: relative;
+  padding: 20px;
+  /* overflow-y: auto; */
+  height: auto;
+}
+
+.hiddenFormTitle {}
+
+.quiz__blockWr {}
+
+.quiz__block {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.quiz__block.active {
+  opacity: 1;
+  position: relative;
+  z-index: 9;
+}
+
+.quiz__block p {
+  margin-bottom: 10px;
+}
+
+.active {}
+
+.title__element {}
+
+.input__frm {
+  width: 100%;
+  height: 50px;
+  text-indent: 20px;
+  background-color: #fff;
+  color: #c1c1c1;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.input__frm::placeholder {
+  color: #c1c1c1;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+._req {}
+
+.select {}
+
+.labelForm {}
+
+.remove__input {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkedInput {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #262626;
+  border-radius: 5px;
+  margin-right: 5px;
+  position: relative;
+}
+
+.checkedInput:after {
+  content: '';
+  position: absolute;
+  display: block;
+  transform: scale(0);
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #262626;
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: all .3s ease;
+}
+
+.remove__input:checked ~ .checkedInput:after {
+  transform: scale(1);
+}
+
+.checkedInput.checkbox,
+.checkedInput.checkbox::after {
+  border-radius: 0;
+}
+
+.checkbox {}
+
+.labelForm2 {}
+
+.contact {}
+
+.btnControlWr {
+  position: relative;
+}
+
+.btnControlWr.blockBtn span {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 9;
+  background-color: #ccc;
+  opacity: .4;
+  border-radius: 5px;
+}
+
+.form__btn {
+  margin: 20px 0 0 0;
+  float: right;
+}
+
+.notification__text {}
+
+.modal__item-footer {
+  padding: 10px;
+}
+
+.quiz__blockControl {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnPrev {}
+
+.btnNext {}
