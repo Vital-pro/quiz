@@ -204,11 +204,13 @@ legend {
   box-shadow: 0 0 10px rgba(245, 69, 0, .5);
 }
 
-.closeModal:hover {
+.closeModal:hover,
+.closeModal:active {
   transform: rotate(90deg);
 }
 
-.closeModal:hover span {
+.closeModal:hover span,
+.closeModal:active span {
   box-shadow: 0 0 5px rgba(0, 0, 0, .5);
   transition: all .3s;
 }
@@ -223,7 +225,7 @@ legend {
 
 .modal__item {
   height: 100%;
-  background-color: ##dcdcdc;
+  background-color: #dcdcdc;
   padding: 20px;
   border-radius: 8px;
   position: relative;
